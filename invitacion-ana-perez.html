@@ -3,39 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola</title>
+    <title>Corazón Latiente</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #f8e996 0%, #65A682 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #65A682 0%, #4a8c6e 100%);
+            overflow: hidden;
         }
         
-        .container {
-            text-align: center;
+        .heart-container {
+            position: relative;
+            animation: pulse 1.2s ease-in-out infinite;
         }
         
-        h1 {
-            font-size: 6rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeIn 1s ease-in;
+        .heart {
+            width: 120px;
+            height: 120px;
+            background-color: #f8e699;
+            transform: rotate(-45deg);
+            position: relative;
+            animation: heartbeat 1s ease-in-out infinite;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 120px;
+            height: 120px;
+            background-color: #f8e699;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .heart::before {
+            top: -60px;
+            left: 0;
+        }
+        
+        .heart::after {
+            top: 0;
+            left: 60px;
+        }
+        
+        @keyframes heartbeat {
+            0% {
+                transform: rotate(-45deg) scale(1);
+            }
+            14% {
+                transform: rotate(-45deg) scale(1.1);
+            }
+            28% {
+                transform: rotate(-45deg) scale(1);
+            }
+            42% {
+                transform: rotate(-45deg) scale(1.1);
+            }
+            70% {
+                transform: rotate(-45deg) scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hola</h1>
+    <div class="heart-container">
+        <div class="heart"></div>
     </div>
+
+    <script>
+        // Redirigir después de 4 segundos (4000 milisegundos)
+        setTimeout(function() {
+            window.location.href = "https://www.google.com";
+        }, 4000);
+    </script>
 </body>
 </html>
+
 
