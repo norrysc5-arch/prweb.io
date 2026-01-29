@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Invitados - Boda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f9f7f0 0%, #f0e9d8 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #65A682;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            font-weight: 300;
+        }
+
+        .guests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .guest-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(101, 166, 130, 0.1);
+        }
+
+        .guest-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(101, 166, 130, 0.15);
+            border-color: #65A682;
+        }
+
+        .guest-card:hover .guest-name {
+            color: #65A682;
+        }
+
+        .guest-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #f8e996;
+            display: block;
+        }
+
+        .guest-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f8e996, #65A682, transparent);
+            margin: 2rem 0;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            .guests-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            body {
+                padding: 1.5rem;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Invitados Especiales</h1>
+            <div class="divider"></div>
+            <p class="subtitle">Celebrando nuestro amor con las personas más importantes</p>
+        </header>
+
+        <div class="guests-grid">
+            <a href="invitacion-carlos-rodriguez.html" class="guest-card">
+                <span class="guest-icon">👰‍♀️</span>
+                <div class="guest-name">Carlos Rodríguez</div>
+            </a>
+            <a href="invitacion-maria-gonzalez.html" class="guest-card">
+                <span class="guest-icon">🤵</span>
+                <div class="guest-name">María González</div>
+            </a>
+            <a href="invitacion-javier-sanchez.html" class="guest-card">
+                <span class="guest-icon">💐</span>
+                <div class="guest-name">Javier Sánchez</div>
+            </a>
+            <a href="invitacion-laura-martinez.html" class="guest-card">
+                <span class="guest-icon">💍</span>
+                <div class="guest-name">Laura Martínez</div>
+            </a>
+            <a href="invitacion-andres-lopez.html" class="guest-card">
+                <span class="guest-icon">🥂</span>
+                <div class="guest-name">Andrés López</div>
+            </a>
+            <a href="invitacion-carmen-diaz.html" class="guest-card">
+                <span class="guest-icon">🌹</span>
+                <div class="guest-name">Carmen Díaz</div>
+            </a>
+            <a href="invitacion-miguel-hernandez.html" class="guest-card">
+                <span class="guest-icon">🕊️</span>
+                <div class="guest-name">Miguel Hernández</div>
+            </a>
+            <a href="invitacion-ana-perez.html" class="guest-card">
+                <span class="guest-icon">✨</span>
+                <div class="guest-name">Ana Pérez</div>
+            </a>
+            <a href="invitacion-david-ramirez.html" class="guest-card">
+                <span class="guest-icon">🎊</span>
+                <div class="guest-name">David Ramírez</div>
+            </a>
+            <a href="invitacion-silvia-torres.html" class="guest-card">
+                <span class="guest-icon">🌟</span>
+                <div class="guest-name">Silvia Torres</div>
+            </a>
+            <a href="invitacion-fernando-vargas.html" class="guest-card">
+                <span class="guest-icon">🎉</span>
+                <div class="guest-name">Fernando Vargas</div>
+            </a>
+            <a href="invitacion-patricia-moreno.html" class="guest-card">
+                <span class="guest-icon">💫</span>
+                <div class="guest-name">Patricia Moreno</div>
+            </a>
+            <a href="invitacion-raul-castro.html" class="guest-card">
+                <span class="guest-icon">🍾</span>
+                <div class="guest-name">Raúl Castro</div>
+            </a>
+            <a href="invitacion-elena-ruiz.html" class="guest-card">
+                <span class="guest-icon">🌷</span>
+                <div class="guest-name">Elena Ruiz</div>
+            </a>
+            <a href="invitacion-sergio-ortega.html" class="guest-card">
+                <span class="guest-icon">🌺</span>
+                <div class="guest-name">Sergio Ortega</div>
+            </a>
+            <a href="invitacion-diana-flores.html" class="guest-card">
+                <span class="guest-icon">🌸</span>
+                <div class="guest-name">Diana Flores</div>
+            </a>
+            <a href="invitacion-pablo-navarro.html" class="guest-card">
+                <span class="guest-icon">🌼</span>
+                <div class="guest-name">Pablo Navarro</div>
+            </a>
+            <a href="invitacion-veronica-mendoza.html" class="guest-card">
+                <span class="guest-icon">🌻</span>
+                <div class="guest-name">Verónica Mendoza</div>
+            </a>
+            <a href="invitacion-alejandro-suarez.html" class="guest-card">
+                <span class="guest-icon">🌿</span>
+                <div class="guest-name">Alejandro Suárez</div>
+            </a>
+            <a href="invitacion-natalia-romero.html" class="guest-card">
+                <span class="guest-icon">🍀</span>
+                <div class="guest-name">Natalia Romero</div>
+            </a>
+            <a href="invitacion-gabriel-molina.html" class="guest-card">
+                <span class="guest-icon">🍃</span>
+                <div class="guest-name">Gabriel Molina</div>
+            </a>
+            <a href="invitacion-carla-ibanez.html" class="guest-card">
+                <span class="guest-icon">🍁</span>
+                <div class="guest-name">Carla Ibáñez</div>
+            </a>
+            <a href="invitacion-martin-acosta.html" class="guest-card">
+                <span class="guest-icon">🍂</span>
+                <div class="guest-name">Martín Acosta</div>
+            </a>
+            <a href="invitacion-sofia-vega.html" class="guest-card">
+                <span class="guest-icon">🌾</span>
+                <div class="guest-name">Sofía Vega</div>
+            </a>
+            <a href="invitacion-diego-marquez.html" class="guest-card">
+                <span class="guest-icon">🌱</span>
+                <div class="guest-name">Diego Márquez</div>
+            </a>
+            <a href="invitacion-valeria-campos.html" class="guest-card">
+                <span class="guest-icon">🌴</span>
+                <div class="guest-name">Valeria Campos</div>
+            </a>
+            <a href="invitacion-ivan-medina.html" class="guest-card">
+                <span class="guest-icon">🌵</span>
+                <div class="guest-name">Iván Medina</div>
+            </a>
+            <a href="invitacion-lucia-ayala.html" class="guest-card">
+                <span class="guest-icon">🌳</span>
+                <div class="guest-name">Lucía Ayala</div>
+            </a>
+            <a href="invitacion-tomas-reyes.html" class="guest-card">
+                <span class="guest-icon">🌲</span>
+                <div class="guest-name">Tomás Reyes</div>
+            </a>
+            <a href="invitacion-claudia-gutierrez.html" class="guest-card">
+                <span class="guest-icon">🎋</span>
+                <div class="guest-name">Claudia Gutiérrez</div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>Con amor y gratitud • 2026</p>
+        </div>
+    </div>
+</body>
+</html>
+
