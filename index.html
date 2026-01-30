@@ -337,10 +337,11 @@
     <div class="toast" id="toast">¡Enlace copiado al portapapeles!</div>
 
     <script>
-        // Función para copiar el enlace al portapapeles
+        // Función para copiar el enlace completo al portapapeles
         function copyLink(button) {
             const card = button.closest('.guest-card');
             const href = card.getAttribute('data-href');
+            // Construir la URL completa absoluta
             const fullUrl = window.location.origin + '/' + href;
             
             // Copiar al portapapeles
