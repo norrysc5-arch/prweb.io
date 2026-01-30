@@ -337,15 +337,36 @@
     <div class="toast" id="toast">¡Enlace copiado al portapapeles!</div>
 
     <script>
-        // Función para copiar el enlace completo al portapapeles
+        // Función para copiar el enlace completo al portapapeles incluyendo la ruta correcta
         function copyLink(button) {
             const card = button.closest('.guest-card');
             const href = card.getAttribute('data-href');
-            // Construir la URL completa absoluta
-            const fullUrl = window.location.origin + '/' + href;
             
-            // Copiar al portapapeles
-            navigator.clipboard.writeText(fullUrl).then(() => {
+            // Construir la URL completa considerando la estructura del repositorio GitHub Pages
+            let baseUrl = window.location.origin;
+            let pathname = window.location.pathname;
+            
+            // Si estamos en una subcarpeta (como /prweb.io/), la incluimos en la URL
+            if (pathname && pathname !== '/') {
+                // Eliminar el archivo index.html o similar del final si existe
+                let basePath = pathname.substring(0, pathname.lastIndexOf('/') + 1);
+                // Asegurarse de que no termine con doble barra
+                if (basePath.endsWith('//')) {
+                    basePath = basePath.substring(0, basePath.length - 1);
+                }
+                // Construir la URL completa
+                const fullUrl = baseUrl + basePath + href;
+                copyToClipboard(fullUrl);
+            } else {
+                // Caso normal sin subcarpetas
+                const fullUrl = baseUrl + '/' + href;
+                copyToClipboard(fullUrl);
+            }
+        }
+        
+        // Función auxiliar para copiar al portapapeles
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
                 // Mostrar notificación
                 const toast = document.getElementById('toast');
                 toast.classList.add('show');
