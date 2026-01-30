@@ -60,6 +60,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid rgba(101, 166, 130, 0.1);
+            position: relative;
         }
 
         .guest-card:hover {
@@ -84,6 +85,31 @@
             font-weight: 500;
             color: #333;
             transition: color 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .copy-btn {
+            background: #65A682;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .guest-card:hover .copy-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .copy-btn:hover {
+            background: #5a9473;
+            transform: scale(1.05);
         }
 
         .divider {
@@ -105,6 +131,11 @@
             body {
                 padding: 1.5rem;
             }
+            
+            .copy-btn {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
         }
 
         .footer {
@@ -112,6 +143,28 @@
             margin-top: 3rem;
             color: #888;
             font-size: 0.9rem;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #65A682;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -124,132 +177,199 @@
         </header>
 
         <div class="guests-grid">
-            <a href="invitacion-carlos-rodriguez.html" class="guest-card">
+            <div class="guest-card" data-href="invitacion-carlos-rodriguez.html">
                 <span class="guest-icon">👰‍♀️</span>
                 <div class="guest-name">Carlos Rodríguez</div>
-            </a>
-            <a href="invitacion-maria-gonzalez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-maria-gonzalez.html">
                 <span class="guest-icon">🤵</span>
                 <div class="guest-name">María González</div>
-            </a>
-            <a href="invitacion-javier-sanchez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-javier-sanchez.html">
                 <span class="guest-icon">💐</span>
                 <div class="guest-name">Javier Sánchez</div>
-            </a>
-            <a href="invitacion-laura-martinez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-laura-martinez.html">
                 <span class="guest-icon">💍</span>
                 <div class="guest-name">Laura Martínez</div>
-            </a>
-            <a href="invitacion-andres-lopez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-andres-lopez.html">
                 <span class="guest-icon">🥂</span>
                 <div class="guest-name">Andrés López</div>
-            </a>
-            <a href="invitacion-carmen-diaz.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-carmen-diaz.html">
                 <span class="guest-icon">🌹</span>
                 <div class="guest-name">Carmen Díaz</div>
-            </a>
-            <a href="invitacion-miguel-hernandez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-miguel-hernandez.html">
                 <span class="guest-icon">🕊️</span>
                 <div class="guest-name">Miguel Hernández</div>
-            </a>
-            <a href="invitacion-ana-perez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-ana-perez.html">
                 <span class="guest-icon">✨</span>
                 <div class="guest-name">Ana Pérez</div>
-            </a>
-            <a href="invitacion-david-ramirez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-david-ramirez.html">
                 <span class="guest-icon">🎊</span>
                 <div class="guest-name">David Ramírez</div>
-            </a>
-            <a href="invitacion-silvia-torres.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-silvia-torres.html">
                 <span class="guest-icon">🌟</span>
                 <div class="guest-name">Silvia Torres</div>
-            </a>
-            <a href="invitacion-fernando-vargas.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-fernando-vargas.html">
                 <span class="guest-icon">🎉</span>
                 <div class="guest-name">Fernando Vargas</div>
-            </a>
-            <a href="invitacion-patricia-moreno.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-patricia-moreno.html">
                 <span class="guest-icon">💫</span>
                 <div class="guest-name">Patricia Moreno</div>
-            </a>
-            <a href="invitacion-raul-castro.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-raul-castro.html">
                 <span class="guest-icon">🍾</span>
                 <div class="guest-name">Raúl Castro</div>
-            </a>
-            <a href="invitacion-elena-ruiz.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-elena-ruiz.html">
                 <span class="guest-icon">🌷</span>
                 <div class="guest-name">Elena Ruiz</div>
-            </a>
-            <a href="invitacion-sergio-ortega.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-sergio-ortega.html">
                 <span class="guest-icon">🌺</span>
                 <div class="guest-name">Sergio Ortega</div>
-            </a>
-            <a href="invitacion-diana-flores.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-diana-flores.html">
                 <span class="guest-icon">🌸</span>
                 <div class="guest-name">Diana Flores</div>
-            </a>
-            <a href="invitacion-pablo-navarro.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-pablo-navarro.html">
                 <span class="guest-icon">🌼</span>
                 <div class="guest-name">Pablo Navarro</div>
-            </a>
-            <a href="invitacion-veronica-mendoza.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-veronica-mendoza.html">
                 <span class="guest-icon">🌻</span>
                 <div class="guest-name">Verónica Mendoza</div>
-            </a>
-            <a href="invitacion-alejandro-suarez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-alejandro-suarez.html">
                 <span class="guest-icon">🌿</span>
                 <div class="guest-name">Alejandro Suárez</div>
-            </a>
-            <a href="invitacion-natalia-romero.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-natalia-romero.html">
                 <span class="guest-icon">🍀</span>
                 <div class="guest-name">Natalia Romero</div>
-            </a>
-            <a href="invitacion-gabriel-molina.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-gabriel-molina.html">
                 <span class="guest-icon">🍃</span>
                 <div class="guest-name">Gabriel Molina</div>
-            </a>
-            <a href="invitacion-carla-ibanez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-carla-ibanez.html">
                 <span class="guest-icon">🍁</span>
                 <div class="guest-name">Carla Ibáñez</div>
-            </a>
-            <a href="invitacion-martin-acosta.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-martin-acosta.html">
                 <span class="guest-icon">🍂</span>
                 <div class="guest-name">Martín Acosta</div>
-            </a>
-            <a href="invitacion-sofia-vega.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-sofia-vega.html">
                 <span class="guest-icon">🌾</span>
                 <div class="guest-name">Sofía Vega</div>
-            </a>
-            <a href="invitacion-diego-marquez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-diego-marquez.html">
                 <span class="guest-icon">🌱</span>
                 <div class="guest-name">Diego Márquez</div>
-            </a>
-            <a href="invitacion-valeria-campos.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-valeria-campos.html">
                 <span class="guest-icon">🌴</span>
                 <div class="guest-name">Valeria Campos</div>
-            </a>
-            <a href="invitacion-ivan-medina.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-ivan-medina.html">
                 <span class="guest-icon">🌵</span>
                 <div class="guest-name">Iván Medina</div>
-            </a>
-            <a href="invitacion-lucia-ayala.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-lucia-ayala.html">
                 <span class="guest-icon">🌳</span>
                 <div class="guest-name">Lucía Ayala</div>
-            </a>
-            <a href="invitacion-tomas-reyes.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-tomas-reyes.html">
                 <span class="guest-icon">🌲</span>
                 <div class="guest-name">Tomás Reyes</div>
-            </a>
-            <a href="invitacion-claudia-gutierrez.html" class="guest-card">
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
+            <div class="guest-card" data-href="invitacion-claudia-gutierrez.html">
                 <span class="guest-icon">🎋</span>
                 <div class="guest-name">Claudia Gutiérrez</div>
-            </a>
+                <button class="copy-btn" onclick="copyLink(this)">Copiar enlace</button>
+            </div>
         </div>
 
         <div class="footer">
             <p>Con amor y gratitud • 2026</p>
         </div>
     </div>
+
+    <div class="toast" id="toast">¡Enlace copiado al portapapeles!</div>
+
+    <script>
+        // Función para copiar el enlace al portapapeles
+        function copyLink(button) {
+            const card = button.closest('.guest-card');
+            const href = card.getAttribute('data-href');
+            const fullUrl = window.location.origin + '/' + href;
+            
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(fullUrl).then(() => {
+                // Mostrar notificación
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                
+                // Ocultar notificación después de 2 segundos
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar el enlace:', err);
+                alert('No se pudo copiar el enlace. Por favor, inténtalo de nuevo.');
+            });
+        }
+
+        // Hacer que las tarjetas sean clickeables para navegar a la página de invitación
+        document.querySelectorAll('.guest-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Si el clic no fue en el botón de copiar
+                if (!e.target.classList.contains('copy-btn')) {
+                    const href = this.getAttribute('data-href');
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 
